@@ -1,4 +1,4 @@
-# $Id: primaimage.pd,v 1.2 2003/02/06 16:46:49 dk Exp $
+# $Id: primaimage.pd,v 1.3 2003/02/16 12:39:31 dk Exp $
 
 use strict;
 pp_addpm({At=>'Top'},<<'EOD');
@@ -200,6 +200,15 @@ pp_addhdr(<<HEADER);
 PImage_vmt CImage;
 
 static void
+repad( Byte * source, Byte * dest, int h, int srcLineSize, int dstLineSize)
+{
+   int bsc = srcLineSize > dstLineSize ? dstLineSize : srcLineSize;
+   for ( ; h > 0; h--, source += srcLineSize, dest += dstLineSize)
+      memcpy(source, dest, bsc); 
+}
+
+
+static void
 prima_image_convert( SV * imagesv, void * data, int w, int h, int image2piddle, int z, int mpixel, int type)
 {
    int bsz = (type & imBPP)/8;
@@ -212,16 +221,11 @@ prima_image_convert( SV * imagesv, void * data, int w, int h, int image2piddle, 
       z = 1;
    }
    if ( image2piddle) {
-      ibc_repad(image-> data, ( Byte *) data, 
-         image-> lineSize, bsz * w * z, 
-         image-> dataSize, bsz * w * h * z, 
-         1, 1, nil);
+      repad(image-> data, ( Byte *) data, h, image-> lineSize, bsz * w * z);
    } else {
       if ( w * z != image-> w || h != image-> h || image-> type != type)
          image-> self-> create_empty(( Handle) image, w * z, h, type);
-      ibc_repad(( Byte *) data, image-> data, 
-         bsz * w * z, image-> lineSize, 
-         bsz * w * h * z, image-> dataSize, 1, 1, nil);
+      repad(( Byte *) data, image-> data, h, bsz * w * z, image-> lineSize); 
       if ( z == 2) {
          if ( type != imFloat && type != imComplex)
             image-> self-> reset(( Handle) image, imFloat, nil, 0);
@@ -260,3 +264,4 @@ pp_def('image2piddle',
 CODE
 );
 
+pp_done();
