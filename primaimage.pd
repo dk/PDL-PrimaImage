@@ -1,4 +1,4 @@
-# $Id: primaimage.pd,v 1.1 2003/02/06 11:43:26 dk Exp $
+# $Id: primaimage.pd,v 1.2 2003/02/06 16:46:49 dk Exp $
 
 use strict;
 pp_addpm({At=>'Top'},<<'EOD');
@@ -180,6 +180,8 @@ namespace export ( see L<Dynaloader> for more ).
 Dmitry Karasik, E<lt>dmitry@karasik.eu.orgE<gt>.
 
 =head1 SEE ALSO
+
+PDL-PrimaImage page, http://www.prima.eu.org/PDL-PrimaImage/
 
 The Prima toolkit, http://www.prima.eu.org/
 
