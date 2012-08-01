@@ -8,9 +8,8 @@ use Prima::Config;
 $hash{OBJECT}="PrimaImage\$(OBJ_EXT)";
 $hash{VERSION_FROM}="primaimage.pd";
 $hash{clean}{FILES} ='PrimaImage';
-$hash{INC} .= join( ' ' , map { $Prima::Config::Config{cincflag}.$_} @{$Prima::Config::Config{incpaths}});
-$hash{LDDLFLAGS} .= $Prima::Config::Config{libname} if $^O =~ /win32|os2/i;
-my %DEFINES=map { my @z = split('=', $_, 2); scalar(@z)?(@z):($_ => 1)} @{$Prima::Config::Config{cdefs}};
-$hash{CCFLAGS} .= join( ' ' , map { $Prima::Config::Config{cdefflag}.$_.'='.$DEFINES{$_}} keys %DEFINES);
+$hash{INC} .= " $Prima::Config::Config{inc}";
+push @{$hash{LIBS}}, $Prima::Config::Config{libs};
+$hash{DEFINE} .= " $Prima::Config::Config{define}";
 WriteMakefile(%hash);
 sub MY::postamble { pdlpp_postamble(@::pack); } 

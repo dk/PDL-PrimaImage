@@ -250,8 +250,10 @@ prima_image_convert( SV * imagesv, void * data, int w, int h, int image2piddle, 
 HEADER
 
 
-pp_add_boot('CImage = (PImage_vmt)gimme_the_vmt( "Prima::Image");');
-
+pp_add_boot(<<'BOOT');
+PRIMA_VERSION_BOOTCHECK;
+CImage = (PImage_vmt)gimme_the_vmt( "Prima::Image");
+BOOT
 
 pp_def('image2piddle',
         Pars => 'data(z,w,h)',
