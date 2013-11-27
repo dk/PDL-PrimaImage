@@ -201,4 +201,6 @@ $t = $w->insert( Timer =>
 );
 $t->start;
 
+$w->pointerPos( $npts/2, $npts/2);
+
 run Prima;
