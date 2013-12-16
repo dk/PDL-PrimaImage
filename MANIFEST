@@ -3,3 +3,4 @@ primaimage.pd
 README
 MANIFEST
 test.pl
+examples/mandelbrot.pl

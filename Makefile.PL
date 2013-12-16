@@ -11,5 +11,6 @@ $hash{clean}{FILES} ='PrimaImage';
 $hash{INC} .= " $Prima::Config::Config{inc}";
 push @{$hash{LIBS}}, $Prima::Config::Config{libs};
 $hash{DEFINE} .= " $Prima::Config::Config{define}";
+$hash{META_MERGE}->{resources}->{repository} = 'https://github.com/dk/PDL-PrimaImage';
 WriteMakefile(%hash);
 sub MY::postamble { pdlpp_postamble(@::pack); } 
