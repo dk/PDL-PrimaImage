@@ -94,6 +94,9 @@ use PDL::Core;
 
 package PDL::PrimaImage;
 
+use strict;
+use warnings;
+
 sub image
 {
    my ( $piddle, %options) = @_;
@@ -107,6 +110,8 @@ sub image
    PDL::PrimaImage::image2piddle( $piddle, $i, 0, $mpixel);
    return $i;
 }
+
+no warnings 'redefine';
 
 sub piddle
 {
