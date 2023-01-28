@@ -1,1 +1,5 @@
-1.02 - add examples/mandelbrot.pl
+1.03 2023-01-28
+- freshen the distro for modern requirements, no functionality change
+
+1.02 2013-12-16
+- add examples/mandelbrot.pl
