@@ -2,5 +2,6 @@ Makefile.PL
 primaimage.pd
 README
 MANIFEST
+PrimaImage.pm
 test.pl
 examples/mandelbrot.pl
