@@ -1,0 +1,7 @@
+PrimaImage.bs
+PrimaImage.c
+PrimaImage.o
+PrimaImage.pm
+PrimaImage.xs
+PDL-*
+pp-*.c
