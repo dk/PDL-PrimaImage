@@ -151,6 +151,10 @@ value 1 in the upper right corner.
 
 See L<Prima::Image> for more.
 
+EOD
+
+pp_addpm({At=>'Bot'},<<'EOD');
+
 =head1 Troubleshooting
 
 =over
@@ -162,40 +166,6 @@ the error persists, it is probably Prima error; try to re-install Prima. If the
 problem continues, try to change manually value in 'sub dl_load_flags { 0x00 }'
 string to 0x01 in Prima.pm - this flag is used to control namespace export (
 see L<Dynaloader> for more ).
-
-=back
-
-=head1 AUTHOR
-
-Dmitry Karasik, E<lt>dmitry@karasik.eu.orgE<gt>.
-
-=head1 SEE ALSO
-
-PDL-PrimaImage page, http://www.prima.eu.org/PDL-PrimaImage/
-
-The Prima toolkit, http://www.prima.eu.org/
-
-L<PDL>, L<Prima>, L<Prima::Image>.
-
-=cut
-
-
-EOD
-
-pp_addpm({At=>'Bot'},<<'EOD');
-
-=head1 TROUBLESHOOTING
-
-=over
-
-=item Undefined symbol "gimme_the_vmt"
-
-The symbol is contained in Prima toolkit. Include 'use Prima;' 
-in your code. If the error persists, it is probably Prima
-error; try to re-install Prima. If the problem continues,
-try to change manually value in 'sub dl_load_flags { 0x00 }'
-string to 0x01 in Prima.pm - this flag is used to control
-namespace export ( see L<Dynaloader> for more ).
 
 =back
 
