@@ -197,8 +197,6 @@ try to change manually value in 'sub dl_load_flags { 0x00 }'
 string to 0x01 in Prima.pm - this flag is used to control
 namespace export ( see L<Dynaloader> for more ).
 
-=item 
-
 =back
 
 =head1 AUTHOR
