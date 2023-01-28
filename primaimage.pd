@@ -155,7 +155,7 @@ See L<Prima::Image> for more.
 
 =over
 
-=item Undefinedned symbol "gimme_the_vmt"
+=item Undefined symbol "gimme_the_vmt"
 
 The symbol is contained in Prima toolkit. Include 'use Prima;' in your code. If
 the error persists, it is probably Prima error; try to re-install Prima. If the
@@ -188,7 +188,7 @@ pp_addpm({At=>'Bot'},<<'EOD');
 
 =over
 
-=item Undefinedned symbol "gimme_the_vmt"
+=item Undefined symbol "gimme_the_vmt"
 
 The symbol is contained in Prima toolkit. Include 'use Prima;' 
 in your code. If the error persists, it is probably Prima
